@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Moteur de template TWIG</title>
+</head>
+<body>
+
+<!-- A la place d'ecrire <?php while etc etc ?>, on va utiliser twig pour avoir un meilleur visuel -->
+<!-- la variables students est un tableau avec plusieurs valeurs, donc on va boucler  -->
+<p><h1>Code avec Twig</h1></p>
+<p>
+	<ul>
+	{% for student in students %} <!-- foreach version twig -->
+		<li>
+			{% if student.name == "Tibo" %}
+				<strong>Mochi Mochi</strong> {{ student.name }} qui a {{ student.age }} ans.
+			{% else %}
+				Hello {{ student.name }} qui a {{ student.age }} ans.
+			{% endif %}
+
+		</li>
+	{% endfor %}                   <!-- fin du for -->
+	</ul>
+</p>
+
+
+<!-- Ce que ca aurait donner avec du pure PHP :) -->
+<!--	<p><h1>Code avec php</h1></p>
+	<p>
+		<ul>
+			<?php foreach($students as $student) { ?>
+				<li>
+					<?php if($student["name"] == "Tibo" ?>
+						<strong>Mochi Mochi</strong> <?= $student["name"] ?> qui a <?= $student["age"] ?> ans.
+					<?php else: ?>
+						Hello <?= $student["name"] ?> qui a <?= $student["age"] ?> ans.
+					<?php endif ?>
+				</li>
+			<?php } ?>
+		</ul>
+	</p>-->
+
+</body>
+</html>
